@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Filmy</title>
+    <link href="/style.css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1 id="top-header">Filmy</h1>
+        <div class="nav-links">
+            <a href="#add-movie" class="btn btn-outline">Dodaj nowy film</a>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="sort-controls">
+        <button id="sortButton" class="btn btn-sort">Sortuj</button>
+    </div>
+
+    <div id="films-container" class="movie-list"></div>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeEditModal()">&times;</span>
+            <h2>Edytuj film</h2>
+            <form id="editForm" enctype="multipart/form-data">
+                <input type="hidden" id="editFilmId">
+
+                <div class="form-group">
+                    <label for="editTitle">Tytuł</label>
+                    <input type="text" id="editTitle" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="editYear">Rok produkcji</label>
+                    <input type="number" id="editYear" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Reżyser</label>
+                    <div class="director-select-container">
+                        <select id="editDirectorSelect" class="form-control">
+                            <option value="">-- Wybierz reżysera --</option>
+                        </select>
+                        <span class="or-text">lub</span>
+                        <input type="text" id="editNewDirector" class="form-control"
+                               placeholder="Dodaj nowego reżysera">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="editDescription">Opis</label>
+                    <textarea id="editDescription" class="form-control" rows="4"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Aktualna okładka</label>
+                    <img id="currentImagePreview" class="current-image">
+                    <label for="editImage">Zmień okładkę (opcjonalnie)</label>
+                    <input type="file" id="editImage" class="form-control" accept="image/*">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
+            </form>
+        </div>
+    </div>
+
+    <section id="add-movie">
+        <form id="addFilmForm" enctype="multipart/form-data">
+            <h2 class="form-title">Dodaj nowy film</h2>
+
+            <div class="form-group">
+                <label for="title">Tytuł filmu</label>
+                <input type="text" id="title" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="releaseYear">Rok produkcji</label>
+                <input type="number" id="releaseYear" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label>Reżyser</label>
+                <div class="director-select-container">
+                    <select id="directorSelect" class="form-control">
+                        <option value="">-- Wybierz reżysera --</option>
+                    </select>
+                    <span class="or-text">lub</span>
+                    <input type="text" id="newDirector" class="form-control" placeholder="Dodaj nowego reżysera">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Opis</label>
+                <textarea id="description" class="form-control" rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="image">Okładka filmu</label>
+                <input type="file" id="image" class="form-control" accept="image/*">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Dodaj film</button>
+        </form>
+    </section>
+</div>
+<script src="/script.js" type="text/javascript"></script>
+</body>
+</html>
