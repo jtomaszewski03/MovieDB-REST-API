@@ -39,6 +39,9 @@ public class DatabaseService {
     }
 
     public ResponseEntity<Void> deleteMovie(int id) {
+        if (!movieRepository.existsById(id)) {
+            return ResponseEntity.notFound().build();
+        }
         movieRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }
